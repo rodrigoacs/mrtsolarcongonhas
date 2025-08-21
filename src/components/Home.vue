@@ -39,7 +39,7 @@
 }
 
 .main-title {
-  font-size: 4.5rem;
+  font-size: 5rem;
   color: var(--light-orange);
   background-image: linear-gradient(to right, var(--dark-orange), var(--light-orange));
   -webkit-background-clip: text;
@@ -50,9 +50,9 @@
 }
 
 .subtitle {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin: 1rem 0 2.5rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .btn-cta {
