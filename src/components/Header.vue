@@ -27,9 +27,9 @@
             />
           </a>
         </li>
-        <li><a href="#about">QUEM SOMOS</a></li>
         <li><a href="#services">SERVIÇOS</a></li>
-        <li><a href="#">CLIENTES | PARCEIROS</a></li>
+        <li><a href="#about">QUEM SOMOS</a></li>
+        <li><a href="#clients">CLIENTES | PARCEIROS</a></li>
         <li><button class="btn-contact">CONTATO</button></li>
       </ul>
     </nav>
