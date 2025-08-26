@@ -17,7 +17,7 @@
             />
           </a>
         </li>
-        <li><a href="#">QUEM SOMOS</a></li>
+        <li><a href="#about">QUEM SOMOS</a></li>
         <li><a href="#services">SERVIÇOS</a></li>
         <li><a href="#">CLIENTES | PARCEIROS</a></li>
         <li>

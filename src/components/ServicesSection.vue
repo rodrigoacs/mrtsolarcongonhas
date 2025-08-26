@@ -1,15 +1,24 @@
 <template>
-  <section class="services-section">
+  <section
+    class="services-section"
+    ref="sectionRef"
+  >
     <div class="content-wrapper">
       <div class="image-container">
-        <img src="/bg-services.jpg" alt="Instalação de painéis solares" />
+        <img
+          src="/bg-services.jpg"
+          alt="Instalação de painéis solares"
+        />
       </div>
       <div class="text-container">
         <h2>Projetos e serviços</h2>
         <h3>Energia Solar</h3>
         <div class="lists-container">
           <ul>
-            <li v-for="service in services" :key="service">{{ service }}</li>
+            <li
+              v-for="service in services"
+              :key="service"
+            >{{ service }}</li>
           </ul>
         </div>
       </div>
@@ -18,7 +27,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const services = ref([
   'Instalações elétricas',
@@ -33,16 +42,59 @@ const services = ref([
   'Equipe própria de execução',
   'Acompanhamento de engenheiro em obra',
   'Emissão de ART'
-]);
+])
+
+// --- LÓGICA DA ANIMAÇÃO ---
+const sectionRef = ref(null)
+let observer
+
+onMounted(() => {
+  observer = new IntersectionObserver(
+    (entries) => {
+      // Se o elemento estiver visível, adiciona a classe que ativa a animação
+      if (entries[0].isIntersecting) {
+        sectionRef.value.classList.add('is-visible')
+        observer.disconnect() // Anima apenas uma vez
+      }
+    },
+    { threshold: 0.15 } // A animação começa quando 15% da seção estiver visível
+  )
+
+  if (sectionRef.value) {
+    observer.observe(sectionRef.value)
+  }
+})
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect()
+  }
+})
+// --- FIM DA LÓGICA ---
 </script>
 
 <style scoped>
+/* 2. Adicionamos os estilos para a animação */
 .services-section {
   background-color: var(--dark-blue);
   color: #ffffff;
   padding: 6rem 2rem;
   overflow: hidden;
+
+  /* Estado inicial: invisível e levemente deslocado para baixo */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
+/* Estado final: visível e na posição original */
+.services-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- FIM DOS ESTILOS DE ANIMAÇÃO --- */
+
 
 .content-wrapper {
   max-width: 1200px;
