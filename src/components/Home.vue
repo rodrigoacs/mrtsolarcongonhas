@@ -1,5 +1,7 @@
 <template>
-  <section class="hero-section">
+  <section
+    class="hero-section"
+  >
     <div class="hero-content">
       <h1 class="main-title">Energia solar</h1>
       <p class="subtitle">Enquanto o sol brilha, você economiza!</p>
@@ -25,7 +27,7 @@
   text-align: center;
   color: white;
   background-image: linear-gradient(rgba(0, 17, 46, 0.85), rgba(0, 17, 46, 0.85)),
-    url('/bg.jpg');
+    url('/bg.avif');
   background-size: cover;
   background-position: center;
 }
@@ -62,7 +64,7 @@
   padding: 1rem 2.5rem;
   border-radius: 30px;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -76,7 +78,7 @@
 
 .scroll-indicator {
   padding-bottom: 2rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .scroll-indicator .arrow {

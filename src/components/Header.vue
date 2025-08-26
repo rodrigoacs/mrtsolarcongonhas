@@ -1,7 +1,17 @@
 <template>
-  <div
+  <header
     class="header"
     :class="{ 'header-scrolled': isScrolled }"
+     v-motion
+    :initial="{ opacity: 0, y: 0 }"
+    :visibleOnce="{
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 400,
+        ease: 'easeOut',
+      },
+    }"
   >
     <nav>
       <ul class="nav-links">
@@ -20,16 +30,14 @@
         <li><a href="#about">QUEM SOMOS</a></li>
         <li><a href="#services">SERVIÇOS</a></li>
         <li><a href="#">CLIENTES | PARCEIROS</a></li>
-        <li>
-          <button class="btn-contact">CONTATO</button>
-        </li>
+        <li><button class="btn-contact">CONTATO</button></li>
       </ul>
     </nav>
-  </div>
+  </header>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const isScrolled = ref(false)
 
@@ -39,6 +47,10 @@ function handleScroll() {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
@@ -88,7 +100,7 @@ onMounted(() => {
   color: white;
   text-decoration: none;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 700;
   transition: color 0.3s ease;
   position: relative;
 }
@@ -122,7 +134,7 @@ onMounted(() => {
   border: none;
   padding: 10px 25px;
   border-radius: 25px;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;

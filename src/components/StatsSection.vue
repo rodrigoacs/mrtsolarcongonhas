@@ -2,6 +2,16 @@
   <div
     class="stats-wrapper"
     ref="statsSectionRef"
+    v-motion
+    :initial="{ opacity: 0, y: 50 }"
+    :visibleOnce="{
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 400,
+        ease: 'easeOut',
+      },
+    }"
   >
     <section class="stats-section">
       <div class="title-container">
@@ -38,21 +48,16 @@ const stats = reactive([
 
 const animateNumber = (stat, duration = 1000) => {
   const startTime = performance.now()
-  const startValue = stat.animatedValue
-
   const update = (currentTime) => {
     const elapsedTime = currentTime - startTime
     const progress = Math.min(elapsedTime / duration, 1)
-
-    stat.animatedValue = startValue + progress * (stat.finalValue - startValue)
-
+    stat.animatedValue = progress * stat.finalValue
     if (progress < 1) {
       requestAnimationFrame(update)
     } else {
       stat.animatedValue = stat.finalValue
     }
   }
-
   requestAnimationFrame(update)
 }
 
@@ -61,11 +66,9 @@ let observer
 
 onMounted(() => {
   const options = { threshold: 0.5 }
-
   observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
       stats.forEach(stat => animateNumber(stat))
-
       observer.disconnect()
     }
   }, options)
@@ -84,37 +87,36 @@ onUnmounted(() => {
 
 <style scoped>
 .stats-wrapper {
-  background-color: #ffffff;
-  padding: 4rem 2rem;
+  background-color: #fff;
+  padding: 4rem 2rem
 }
 
 .stats-section {
   max-width: 1200px;
   margin: 0 auto;
   background-color: var(--dark-blue);
-  color: #ffffff;
+  color: #fff;
   border-radius: 25px;
   padding: 2.5rem 3.5rem;
   display: flex;
   align-items: center;
-  gap: 3rem;
-  font-family: sans-serif;
+  gap: 3rem
 }
 
 .title-container {
-  flex-basis: 30%;
+  flex-basis: 30%
 }
 
 .title-container h2 {
   font-size: 2rem;
-  font-weight: bold;
-  line-height: 1.4;
+  font-weight: 700;
+  line-height: 1.4
 }
 
 .title-container .highlight {
   display: block;
   position: relative;
-  padding-bottom: 8px;
+  padding-bottom: 8px
 }
 
 .title-container .highlight::after {
@@ -124,7 +126,7 @@ onUnmounted(() => {
   left: 0;
   width: 50%;
   height: 4px;
-  background-color: var(--dark-orange);
+  background-color: var(--dark-orange)
 }
 
 .stats-container {
@@ -132,30 +134,30 @@ onUnmounted(() => {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  padding: 2rem 1rem;
+  padding: 2rem 1rem
 }
 
 .stat-item {
-  text-align: center;
+  text-align: center
 }
 
 .stat-item .prefix {
   margin: 0;
   font-size: 1rem;
-  color: #ffffff;
+  color: #fff
 }
 
 .stat-item .number {
-  margin: 0.5rem 0;
+  margin: .5rem 0;
   font-size: 4rem;
-  font-weight: bold;
+  font-weight: 700;
   color: var(--dark-orange);
-  line-height: 1;
+  line-height: 1
 }
 
 .stat-item .description {
   margin: 0;
   font-size: 1rem;
-  color: #ffffff;
+  color: #fff
 }
 </style>

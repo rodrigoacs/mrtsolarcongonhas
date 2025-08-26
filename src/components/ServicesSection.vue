@@ -1,12 +1,21 @@
 <template>
   <section
     class="services-section"
-    ref="sectionRef"
+    v-motion
+    :initial="{ opacity: 0, y: 50 }"
+    :visibleOnce="{
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 800,
+        ease: 'easeOut',
+      },
+    }"
   >
     <div class="content-wrapper">
       <div class="image-container">
         <img
-          src="/bg-services.jpg"
+          src="/bg-services.avif"
           alt="Instalação de painéis solares"
         />
       </div>
@@ -27,47 +36,22 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref } from 'vue'
 
 const services = ref([
-  'Item 01',
-  'Item 02',
-  'Item 03',
-  'Item 04',
-  'Item 05',
-  'Item 06',
-  'Item 07',
-  'Item 08',
-  'Item 09',
-  'Item 10',
-  'Item 11',
-  'Item 12'
+  'Instalações elétricas',
+  'Iluminação cênica',
+  'Loteamentos',
+  'Subestação aérea',
+  'Cabine primária',
+  'Medição agrupada ou coletiva',
+  'Correção de fator de potência',
+  'SPDA',
+  'Planejamento da obra, visando a necessidade do cliente',
+  'Equipe própria de execução',
+  'Acompanhamento de engenheiro em obra',
+  'Emissão de ART'
 ])
-
-const sectionRef = ref(null)
-let observer
-
-onMounted(() => {
-  observer = new IntersectionObserver(
-    (entries) => {
-      if (entries[0].isIntersecting) {
-        sectionRef.value.classList.add('is-visible')
-        observer.disconnect()
-      }
-    },
-    { threshold: 0.15 }
-  )
-
-  if (sectionRef.value) {
-    observer.observe(sectionRef.value)
-  }
-})
-
-onUnmounted(() => {
-  if (observer) {
-    observer.disconnect()
-  }
-})
 </script>
 
 <style scoped>
@@ -118,7 +102,7 @@ onUnmounted(() => {
 
 .text-container h2 {
   font-size: 2.2rem;
-  font-weight: bold;
+  font-weight: 700;
   margin-top: 0;
   margin-bottom: 0.5rem;
   color: #f1f1f1;
@@ -129,7 +113,7 @@ onUnmounted(() => {
   color: var(--dark-orange);
   margin-top: 0;
   margin-bottom: 2.5rem;
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: 1px;
 }
 

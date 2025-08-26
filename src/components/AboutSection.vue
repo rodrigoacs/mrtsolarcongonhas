@@ -1,7 +1,16 @@
 <template>
   <section
     class="about-section"
-    ref="aboutSectionRef"
+    v-motion
+    :initial="{ opacity: 0, y: 50 }"
+    :visibleOnce="{
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 400,
+        ease: 'easeOut',
+      },
+    }"
   >
     <div class="content-wrapper">
       <div class="text-container">
@@ -21,7 +30,6 @@
         </p>
         <button class="btn-primary">Fale com um especialista</button>
       </div>
-
       <div class="image-container">
         <img
           src="/logo-blue.webp"
@@ -33,48 +41,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-
-const aboutSectionRef = ref(null)
-let observer
-
-onMounted(() => {
-  observer = new IntersectionObserver(
-    (entries) => {
-      if (entries[0].isIntersecting) {
-        aboutSectionRef.value.classList.add('is-visible')
-        observer.disconnect()
-      }
-    },
-    { threshold: 0.2 }
-  )
-
-  if (aboutSectionRef.value) {
-    observer.observe(aboutSectionRef.value)
-  }
-})
-
-onUnmounted(() => {
-  if (observer) {
-    observer.disconnect()
-  }
-})
 </script>
 
 <style scoped>
 .about-section {
-  background-color: #ffffff;
+  background-color: #fff;
   color: var(--dark-blue);
-  padding: 6rem 2rem;
-  font-family: sans-serif;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.about-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  padding: 6rem 2rem
 }
 
 .content-wrapper {
@@ -82,29 +55,29 @@ onUnmounted(() => {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 5rem;
+  gap: 5rem
 }
 
 .text-container {
   flex-basis: 55%;
-  text-align: left;
+  text-align: left
 }
 
 .subtitle {
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: 700;
   color: var(--dark-orange);
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1px
 }
 
 .title {
   font-size: 2.5rem;
-  font-weight: bold;
+  font-weight: 700;
   margin-top: 0;
   margin-bottom: 2rem;
-  line-height: 1.3;
+  line-height: 1.3
 }
 
 .description {
@@ -112,7 +85,7 @@ onUnmounted(() => {
   line-height: 1.8;
   color: #555;
   margin-bottom: 1.5rem;
-  text-align: justify;
+  text-align: justify
 }
 
 .btn-primary {
@@ -122,25 +95,25 @@ onUnmounted(() => {
   padding: 1rem 2rem;
   border-radius: 30px;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
+  transition: all .3s ease;
+  text-transform: uppercase
 }
 
 .btn-primary:hover {
   background-image: linear-gradient(to left, var(--dark-orange), var(--light-orange));
   transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+  box-shadow: 0 4px 15px rgba(243, 156, 18, .4)
 }
 
 .image-container {
-  flex-basis: 45%;
+  flex-basis: 45%
 }
 
 .image-container img {
   width: 100%;
   border-radius: 15px;
-  display: block;
+  display: block
 }
 </style>
