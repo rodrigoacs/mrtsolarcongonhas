@@ -30,34 +30,32 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const services = ref([
-  'Instalações elétricas',
-  'Iluminação cênica',
-  'Loteamentos',
-  'Subestação aérea',
-  'Cabine primária',
-  'Medição agrupada ou coletiva',
-  'Correção de fator de potência',
-  'SPDA',
-  'Planejamento da obra, visando a necessidade do cliente',
-  'Equipe própria de execução',
-  'Acompanhamento de engenheiro em obra',
-  'Emissão de ART'
+  'Item 01',
+  'Item 02',
+  'Item 03',
+  'Item 04',
+  'Item 05',
+  'Item 06',
+  'Item 07',
+  'Item 08',
+  'Item 09',
+  'Item 10',
+  'Item 11',
+  'Item 12'
 ])
 
-// --- LÓGICA DA ANIMAÇÃO ---
 const sectionRef = ref(null)
 let observer
 
 onMounted(() => {
   observer = new IntersectionObserver(
     (entries) => {
-      // Se o elemento estiver visível, adiciona a classe que ativa a animação
       if (entries[0].isIntersecting) {
         sectionRef.value.classList.add('is-visible')
-        observer.disconnect() // Anima apenas uma vez
+        observer.disconnect()
       }
     },
-    { threshold: 0.15 } // A animação começa quando 15% da seção estiver visível
+    { threshold: 0.15 }
   )
 
   if (sectionRef.value) {
@@ -70,31 +68,24 @@ onUnmounted(() => {
     observer.disconnect()
   }
 })
-// --- FIM DA LÓGICA ---
 </script>
 
 <style scoped>
-/* 2. Adicionamos os estilos para a animação */
 .services-section {
   background-color: var(--dark-blue);
   color: #ffffff;
   padding: 6rem 2rem;
   overflow: hidden;
 
-  /* Estado inicial: invisível e levemente deslocado para baixo */
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* Estado final: visível e na posição original */
 .services-section.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* --- FIM DOS ESTILOS DE ANIMAÇÃO --- */
-
 
 .content-wrapper {
   max-width: 1200px;
