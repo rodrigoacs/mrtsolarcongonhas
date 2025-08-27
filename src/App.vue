@@ -6,6 +6,7 @@
     <ServicesSection id="services" />
     <AboutSection id="about" />
     <ClientsSection id="clients"/>
+    <ContactSection id="contact"/>
   </main>
 </template>
 
@@ -16,6 +17,7 @@ import StatsSection from './components/StatsSection.vue'
 import ServicesSection from './components/ServicesSection.vue'
 import AboutSection from './components/AboutSection.vue'
 import ClientsSection from './components/ClientsSection.vue'
+import ContactSection from './components/ContactSection.vue'
 </script>
 
 <style>

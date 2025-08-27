@@ -2,7 +2,7 @@
   <header
     class="header"
     :class="{ 'header-scrolled': isScrolled }"
-     v-motion
+    v-motion
     :initial="{ opacity: 0, y: 0 }"
     :visibleOnce="{
       opacity: 1,
@@ -30,7 +30,9 @@
         <li><a href="#services">SERVIÇOS</a></li>
         <li><a href="#about">QUEM SOMOS</a></li>
         <li><a href="#clients">CLIENTES | PARCEIROS</a></li>
-        <li><button class="btn-contact">CONTATO</button></li>
+        <a href="#contact">
+          <li><button class="btn-contact">CONTATO</button></li>
+        </a>
       </ul>
     </nav>
   </header>
@@ -105,11 +107,11 @@ onUnmounted(() => {
   position: relative;
 }
 
-.nav-links a:not(.logo-link) {
+.nav-links a:not(.logo-link):not(:has(button)) {
   padding-bottom: 6px;
 }
 
-.nav-links a:not(.logo-link)::after {
+.nav-links a:not(.logo-link):not(:has(button))::after {
   content: '';
   position: absolute;
   width: 0;
@@ -120,11 +122,11 @@ onUnmounted(() => {
   transition: width 0.3s ease;
 }
 
-.nav-links a:not(.logo-link):hover {
+.nav-links a:not(.logo-link):not(:has(button)):hover {
   color: var(--dark-orange);
 }
 
-.nav-links a:not(.logo-link):hover::after {
+.nav-links a:not(.logo-link):not(:has(button)):hover::after {
   width: 100%;
 }
 
