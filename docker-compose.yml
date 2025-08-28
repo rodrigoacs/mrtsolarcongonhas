@@ -5,8 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "8080:80"
+    container_name: mrtsolarcongonhas-frontend
     networks:
       - proxy
 
@@ -14,10 +13,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.backend
+    container_name: mrtsolarcongonhas-backend
     env_file:
       - .env
     ports:
-      - "3000:3000"
+      - "3040:3040"
     networks:
       - proxy
 
