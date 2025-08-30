@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="hero-section"
-  >
+  <section class="hero-section">
     <div class="hero-content">
       <h1 class="main-title">Energia solar</h1>
       <p class="subtitle">Enquanto o sol brilha, você economiza!</p>
@@ -30,6 +28,7 @@
     url('/bg.avif');
   background-size: cover;
   background-position: center;
+  padding: 0 1rem;
 }
 
 .hero-content {
@@ -49,12 +48,14 @@
   -webkit-text-fill-color: transparent;
   margin: 0;
   font-weight: 900;
+  line-height: 1.1;
 }
 
 .subtitle {
   font-size: 2.5rem;
-  margin: 1rem 0 2.5rem;
+  margin: 1.5rem 0 2.5rem;
   font-weight: 500;
+  max-width: 90%;
 }
 
 .btn-cta {
@@ -86,5 +87,31 @@
   color: var(--dark-orange);
   display: block;
   margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 3.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    margin: 1rem 0 2rem;
+  }
+
+  .btn-cta {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
 }
 </style>

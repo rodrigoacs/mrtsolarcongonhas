@@ -18,9 +18,10 @@
         <h3 class="subtitle">Fale Conosco</h3>
         <h2 class="title">Estamos prontos para o seu projeto</h2>
         <p class="description">
-          Entre em contato através dos nossos canais de atendimento ou preencha o formulário ao lado para um orçamento
-          sem compromisso.
+          Entre em contato através dos nossos canais de atendimento ou preencha o formulário para um orçamento sem
+          compromisso.
         </p>
+
         <div class="contact-list">
           <a
             :href="socials.instagram.link"
@@ -286,5 +287,37 @@ textarea {
   background-image: linear-gradient(to left, var(--dark-orange), var(--light-orange));
   transform: scale(1.02);
   box-shadow: 0 4px 15px rgba(243, 156, 18, .4)
+}
+
+@media (max-width: 992px) {
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .info-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-list {
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .form-container {
+    padding: 2rem;
+  }
 }
 </style>

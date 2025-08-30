@@ -117,13 +117,13 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  padding: 1rem;
 }
 
 .modal-container {
-  background-color: #ffffff;
   color: var(--dark-blue);
   border-radius: 15px;
-  width: 90%;
+  width: 100%;
   max-width: 800px;
   max-height: 90vh;
   overflow: hidden;
@@ -136,13 +136,14 @@ onUnmounted(() => {
 .modal-content {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .carousel-container {
   position: relative;
   width: 100%;
   height: 350px;
-  background-color: #eee;
+  flex-shrink: 0;
 }
 
 .image-wrapper {
@@ -189,6 +190,7 @@ onUnmounted(() => {
 }
 
 .modal-text {
+  background-color: #ffffff;
   padding: 2.5rem;
   overflow-y: auto;
 }
@@ -251,5 +253,29 @@ onUnmounted(() => {
 .slide-fade-leave-to {
   opacity: 0;
   transform: translateX(-20px);
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 220px;
+  }
+
+  .modal-text {
+    padding: 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.6rem;
+  }
+
+  .modal-description {
+    font-size: 1rem;
+  }
+
+  .nav-button {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
 }
 </style>

@@ -114,10 +114,8 @@ const projects = ref([
     ],
     description: 'Instalação fotovoltaica para o Comércio Beta, reduzindo os custos operacionais e reforçando a imagem de uma empresa ecologicamente consciente.'
   },
-  // Adicione mais projetos aqui seguindo o mesmo formato
 ])
 
-// Lógica para controlar o modal
 const isModalVisible = ref(false)
 const selectedProject = ref({})
 

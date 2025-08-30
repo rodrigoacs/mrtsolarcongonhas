@@ -60,15 +60,6 @@ const services = ref([
   color: #ffffff;
   padding: 6rem 2rem;
   overflow: hidden;
-
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.services-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .content-wrapper {
@@ -150,5 +141,29 @@ const services = ref([
   border: solid var(--dark-orange);
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
+}
+
+@media (max-width: 992px) {
+  .content-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .lists-container ul {
+    column-count: 1;
+  }
+
+  .text-container,
+  .lists-container ul {
+    text-align: left;
+  }
 }
 </style>
