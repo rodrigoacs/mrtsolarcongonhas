@@ -28,7 +28,9 @@
           Realizamos a instalação, oferecemos garantia, manutenção e assistência pós-instalação para garantir que tudo
           funcione perfeitamente. Nosso trabalho segue rigorosamente as normas técnicas, incluindo a NBR 5410 da ABNT.
         </p>
-        <button class="btn-primary">Fale com um especialista</button>
+        <a href="#contact">
+          <button class="btn-primary">Fale com um especialista</button>
+        </a>
       </div>
       <div class="image-container">
         <img
@@ -44,6 +46,10 @@
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
+
 .about-section {
   background-color: #fff;
   color: var(--dark-blue);

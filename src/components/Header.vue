@@ -73,7 +73,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const isScrolled = ref(false)
 const handleScroll = () => {
-  isScrolled.value = window.scrollY > 10
+  isScrolled.value = window.scrollY > 0
 }
 
 const isMobileMenuOpen = ref(false)
@@ -124,7 +124,7 @@ onUnmounted(() => {
 }
 
 .logo {
-  height: 60px;
+  height: 80px;
   cursor: pointer;
   vertical-align: middle;
 }

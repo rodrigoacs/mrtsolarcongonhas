@@ -3,7 +3,9 @@
     <div class="hero-content">
       <h1 class="main-title">Energia solar</h1>
       <p class="subtitle">Enquanto o sol brilha, você economiza!</p>
-      <button class="btn-cta">ENTRE EM CONTATO CONOSCO</button>
+      <a href="#contact">
+        <button class="btn-cta">ENTRE EM CONTATO CONOSCO</button>
+      </a>
     </div>
     <div class="scroll-indicator">
       <p>Conheça a MRT Energia Solar</p>
@@ -16,6 +18,10 @@
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
+
 .hero-section {
   display: flex;
   flex-direction: column;
