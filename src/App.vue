@@ -5,9 +5,10 @@
     <StatsSection />
     <ServicesSection id="services" />
     <AboutSection id="about" />
-    <ClientsSection id="clients"/>
-    <ContactSection id="contact"/>
+    <ClientsSection id="clients" />
+    <ContactSection id="contact" />
   </main>
+  <Footer />
 </template>
 
 <script setup>
@@ -18,6 +19,7 @@ import ServicesSection from './components/ServicesSection.vue'
 import AboutSection from './components/AboutSection.vue'
 import ClientsSection from './components/ClientsSection.vue'
 import ContactSection from './components/ContactSection.vue'
+import Footer from './components/Footer.vue'
 </script>
 
 <style>

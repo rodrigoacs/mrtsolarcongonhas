@@ -39,18 +39,18 @@
 import { ref } from 'vue'
 
 const services = ref([
-  'Instalações elétricas',
-  'Iluminação cênica',
-  'Loteamentos',
-  'Subestação aérea',
-  'Cabine primária',
-  'Medição agrupada ou coletiva',
-  'Correção de fator de potência',
-  'SPDA',
-  'Planejamento da obra, visando a necessidade do cliente',
-  'Equipe própria de execução',
-  'Acompanhamento de engenheiro em obra',
-  'Emissão de ART'
+  'Item 01',
+  'Item 02',
+  'Item 03',
+  'Item 04',
+  'Item 05',
+  'Item 06',
+  'Item 07',
+  'Item 08',
+  'Item 09',
+  'Item 10',
+  'Item 11',
+  'Item 12'
 ])
 </script>
 

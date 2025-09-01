@@ -206,6 +206,7 @@ onUnmounted(() => {
   font-size: 1.1rem;
   line-height: 1.8;
   color: #555;
+  text-align: justify;
 }
 
 .close-button {
