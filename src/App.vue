@@ -1,7 +1,7 @@
 <template>
   <Header />
   <main>
-    <Home />
+    <Home id="home" />
     <StatsSection />
     <ServicesSection id="services" />
     <AboutSection id="about" />
@@ -12,6 +12,7 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
 import Header from './components/Header.vue'
 import Home from './components/Home.vue'
 import StatsSection from './components/StatsSection.vue'
@@ -20,6 +21,18 @@ import AboutSection from './components/AboutSection.vue'
 import ClientsSection from './components/ClientsSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import Footer from './components/Footer.vue'
+
+onMounted(() => {
+  const path = window.location.pathname.substring(1)
+  if (path) {
+    const section = document.getElementById(path)
+    if (section) {
+      setTimeout(() => {
+        section.scrollIntoView({ behavior: 'instant' })
+      }, 100)
+    }
+  }
+})
 </script>
 
 <style>
